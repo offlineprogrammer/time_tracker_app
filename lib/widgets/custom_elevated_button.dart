@@ -5,7 +5,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Color color;
   final double height;
   static const double borderRadius = 4.0;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const CustomElevatedButton(
       {Key? key,

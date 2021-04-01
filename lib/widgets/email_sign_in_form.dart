@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:time_tracker_app/models/form_submit_button.dart';
 import 'package:time_tracker_app/models/validators.dart';
 import 'package:time_tracker_app/services/auth.dart';
+import 'package:time_tracker_app/widgets/show_alart_dialog.dart';
 
 enum EmailSignInFormType { signIn, register }
 
@@ -48,7 +51,12 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
       }
       Navigator.of(context).pop();
     } catch (e) {
-      print(e.toString());
+      showAlertDialog(
+        context,
+        title: 'Sign In failed',
+        content: e.toString(),
+        defaultActionText: 'OK',
+      );
     } finally {
       setState(() {
         _isLoading = false;
